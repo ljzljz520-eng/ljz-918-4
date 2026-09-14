@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>摄影棚渲染队列控制台</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark"></span>
+        <div>
+          <h1>摄影棚渲染队列控制台</h1>
+          <p class="subtitle">STUDIO RENDER FARM · 服务监管</p>
+        </div>
+      </div>
+      <div class="session">
+        <span id="sessionInfo" class="session-info">会话检测中…</span>
+        <button id="logoutBtn" class="btn btn-ghost" hidden>退出登录</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- 登录卡片 -->
+      <section id="loginCard" class="login-card" hidden>
+        <h2>登录控制台</h2>
+        <p class="login-hint">控制动作（重启服务）仅对已登录用户开放。</p>
+        <form id="loginForm">
+          <label>
+            用户名
+            <input type="text" id="username" name="username" autocomplete="username" required />
+          </label>
+          <label>
+            密码
+            <input type="password" id="password" name="password" autocomplete="current-password" required />
+          </label>
+          <div id="loginError" class="login-error" hidden></div>
+          <button type="submit" class="btn btn-primary btn-block" id="loginSubmit">登录</button>
+        </form>
+      </section>
+
+      <!-- 服务卡片网格 -->
+      <section id="services" class="services"></section>
+
+      <!-- 日志面板 -->
+      <section class="log-panel">
+        <div class="log-head">
+          <div class="log-tabs" id="logTabs"></div>
+          <div class="log-actions">
+            <label class="auto-toggle">
+              <input type="checkbox" id="autoRefresh" checked /> 自动刷新
+            </label>
+            <button class="btn btn-ghost btn-sm" id="refreshLog">刷新日志</button>
+          </div>
+        </div>
+        <pre id="logView" class="log-view">正在加载日志…</pre>
+        <p class="log-path" id="logPath"></p>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <span>控制台仅展示本机服务 · 未登录用户无法执行任何控制动作</span>
+      <span id="lastTick"></span>
+    </footer>
+  </div>
+
+  <div id="toast" class="toast" hidden></div>
+  <script src="/app.js"></script>
+</body>
+</html>

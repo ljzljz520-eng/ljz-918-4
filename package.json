@@ -1,0 +1,13 @@
+{
+  "name": "studio-render-console",
+  "version": "1.0.0",
+  "description": "摄影棚渲染队列控制台：监管渲染守护、素材转码与清理服务",
+  "main": "server/console-server.js",
+  "scripts": {
+    "start": "node server/console-server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}
